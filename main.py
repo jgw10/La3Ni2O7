@@ -273,8 +273,15 @@ def phase_diagram(region, fix_var):
         # 打印计算过的state_type和orb_type
         sorted_keys = sorted(global_cache.keys())
         print("x: state_type, orb_type")
+        current_type = None
         for x in sorted_keys:
             state_type, orb_type = global_cache[x]
+
+            # 当(state_type, orb_type)与之前不同时, 打一空行, 来区分
+            if (state_type, orb_type) != current_type:
+                print()
+                current_type = (state_type, orb_type)
+
             print(f"{x}: {state_type}, {orb_type}")
         print()
         # 找出边界点
@@ -325,11 +332,11 @@ if __name__ == '__main__':
             U_coupled, S_val, Sz_val = basis_change.create_coupled_representation_matrix(VS)
             U_coupled_d = (U_coupled.conjugate()).transpose()
 
-        # compute_Aw_main()
+        compute_Aw_main()
         # state_type_weight()
         # get_val_tpd()
         # get_val_pressure()
-        # phase_diagram({'tpd': (0, 4.2), 'tdo': np.linspace(0, 4.2, 15)}, 'tdo')
+        # phase_diagram({'tpd': (0, 4.2), 'tdo': np.linspace(0.3, 4.2, 1)}, 'tdo')
 
         t1 = time.time()
         print('total time', t1-t0)

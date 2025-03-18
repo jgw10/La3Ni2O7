@@ -1,4 +1,4 @@
-# La3Ni2O7, 单层2个Ni, 层外有一个O
+# La3Ni2O7, 单层2个Ni, 层外有2个O
 注意事项:
 1. 在改变lattice的时候, 要注意d10这种态, 会影响variational_space.py中的get_atomic_energy和get_state_type, 
 hamiltonian.py中的create_Esite_matrix

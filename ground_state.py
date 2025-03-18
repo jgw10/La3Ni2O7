@@ -5,13 +5,14 @@ import scipy.sparse as sps
 import scipy.sparse.linalg
 
 import parameters as pam
-import variational_space as vs
 import lattice as lat
 
 
 def get_ground_state(matrix, VS, multi_S_val, multi_Sz_val, **kwargs):
     """
     求解矩阵的本征值和本征向量, 并对求解结果进行整理
+    :param multi_Sz_val:
+    :param multi_S_val:
     :param matrix: 哈密顿矩阵
     :param VS: 要求解的所有态
     :return:
